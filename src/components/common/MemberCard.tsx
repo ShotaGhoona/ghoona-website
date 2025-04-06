@@ -1,12 +1,10 @@
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
-
 'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 export type SNSLink = { name: string; url: string };
 
 export type MemberCardProps = {
