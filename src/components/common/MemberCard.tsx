@@ -1,3 +1,4 @@
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 'use client';
 
@@ -18,7 +19,8 @@ export type MemberCardProps = {
   sns?: SNSLink[];
 };
 
-const snsIcons: Record<string, any> = {
+
+const snsIcons: Record<string, IconProp> = {
   Instagram: faSquareInstagram,
   LinkedIn: faLinkedin,
 };

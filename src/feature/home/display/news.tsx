@@ -1,5 +1,6 @@
 import SectionTitle from '@/components/common/SectionTitle';
 import NewsCard from '@/components/common/NewsCard';
+import Link from 'next/link';
 
 export default function NewsSection() {
   const newsItems = [
@@ -34,11 +35,11 @@ export default function NewsSection() {
         ))}
       </div>
       <div className="mt-10 flex items-center justify-center">
-        <a href="/news" className="relative py-2 text-gray-700 hover:text-gray-900">
+        <Link href="/news" className="relative py-2 text-gray-700 hover:text-gray-900">
           <span className="block absolute top-0 left-1/2 -translate-x-1/2 w-[200px] border-t border-gray-400"></span>
           <span className="block absolute bottom-0 left-1/2 -translate-x-1/2 w-[200px] border-b border-gray-400"></span>
           <span className="relative">他の記事</span>
-        </a>
+        </Link>
       </div>
     </section>
   );
