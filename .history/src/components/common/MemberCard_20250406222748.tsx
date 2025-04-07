@@ -48,16 +48,16 @@ export default function MemberCard({
         className="w-full h-full object-cover transition-opacity duration-300"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-white/90 via-white/60 to-transparent flex flex-col justify-end px-4 py-5">
-        {role && <span className="text-xs text-[#1C1C1D] font-semibold mb-1">{role}</span>}
+        {role && <span className="text-xs font-semibold mb-1">{role}</span>}
         <div className="flex gap-2 items-baseline">
-          <h2 className="text-xl text-[#1C1C1D] font-bold">{name}</h2>
+          <h2 className="text-xl font-bold">{name}</h2>
           <h3 className="text-xs">{nameEn}</h3>
         </div>
-        <p className="text-xs text-[#1C1C1D] mb-2 overflow-hidden line-clamp-5">{description}</p>
+        <p className="text-xs text-gray-800 mb-2 overflow-hidden line-clamp-5">{description}</p>
 
         <div className="flex justify-end gap-2">
           {sns.map((snsItem, idx) => (
-            <a key={idx} href={snsItem.url} target="_blank" rel="noopener noreferrer" className="text-[#1C1C1D]">
+            <a key={idx} href={snsItem.url} target="_blank" rel="noopener noreferrer" className="text-gray-800">
               <FontAwesomeIcon icon={snsIcons[snsItem.name]} size="lg" />
             </a>
           ))}

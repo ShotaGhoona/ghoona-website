@@ -64,7 +64,7 @@ export default function MVVSection() {
     <section className="relative w-full px-5 md:px-20 py-10 md:py-20">
       <SectionTitle title="Mission Vision Value" />
       <div className="relative overflow-hidden rounded-[30px]">
-        <Image src="/SVG/mvv.svg" width={0} height={0} alt="MVV背景画像" className="w-full h-auto object-cover md:px-20" />
+        <Image src="/SVG/mvv.svg" width={0} height={0} alt="MVV背景画像" className="w-full h-auto object-cover" />
 
         <AnimatePresence mode="wait">
           {content && (
@@ -79,7 +79,7 @@ export default function MVVSection() {
                 className="absolute inset-0 bg-gradient-to-l from-white/90 via-white/60 to-transparent rounded-[30px] hidden md:flex items-center h-full p-10 md:p-20 gap-12 justify-between"
               >
                 <div className="w-[50%] flex flex-col items-center justify-center">
-                  <div className="bg-white/80 shadow-lg rounded-lg w-[70%] h-[80%] flex flex-col items-center justify-center p-4 md:p-8">
+                  <div className="bg-white/80 shadow-lg rounded-lg w-[70%] h-[80%] flex flex-col items-center justify-center p-4 md:py-8 md:px-20">
                     <Image src={content.img} width={200} height={200} alt={`${content.title}画像`} className="object-contain"/>
                     <h2 className="text-[30px] md:text-[40px] font-bold mt-4">{content.title}</h2>
                   </div>

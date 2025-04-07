@@ -15,7 +15,7 @@ export default function TopviewSection() {
       <div className="absolute inset-0 flex items-center justify-between px-10 md:px-20 py-10">
         {/* Brand and Catchphrase */}
         <div className="text-white">
-          <h1 className="text-[60px] sm:text-[100px] md:text-[150px] font-bold leading-tight">Ghoona</h1>
+          <h1 className="text-[75px] sm:text-[100px] md:text-[150px] font-bold leading-tight">Ghoona</h1>
           <p className="text-[30px] sm:text-[50px] md:text-[75px] font-semibold">Update Our World</p>
         </div>
       </div>

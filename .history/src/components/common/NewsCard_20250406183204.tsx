@@ -17,11 +17,11 @@ export default function NewsCard({ title, description, imageUrl }: NewsCardProps
       </div>
 
       {/* タイトル */}
-      <h3 className="text-lg md:text-xl text-[#1C1C1D] font-bold my-3 md:my-5 text-center">{title}</h3>
+      <h3 className="text-lg md:text-xl font-bold my-3 md:my-5 text-center">{title}</h3>
 
       {/* 説明文 + グラデーションオーバーレイ */}
       <div className="relative h-[80px] md:h-[100px] overflow-hidden">
-        <p className="text-xs xl:text-sm text-[#1C1C1D] leading-relaxed z-10 relative">
+        <p className="text-xs xl:text-sm text-gray-600 leading-relaxed z-10 relative">
           {description}
         </p>
         <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-white to-transparent z-20 pointer-events-none" />

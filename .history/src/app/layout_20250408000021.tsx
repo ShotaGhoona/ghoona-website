@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </div>
         <div className="w-full flex flex-col min-h-screen lg:pl-[220px]">
           <Header />
-          <main className="bg-[#f5f5f5] flex-1 mt-[56px] lg:mt-0">{children}</main>
+          <main className="bg-[#f5f5f5]flex-1 mt-[56px] lg:mt-0">{children}</main>
           <Footer />
         </div>
       </body>

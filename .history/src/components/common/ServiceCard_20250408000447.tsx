@@ -26,7 +26,7 @@ export default function ServiceCard({ title, description, imageUrl, href }: Serv
       </div>
 
       <div className="relative h-[100px] overflow-hidden">
-        <p className="text-sm text-[#1C1C1D] leading-relaxed z-10 relative">
+        <p className="text-sm text-gray-600 leading-relaxed z-10 relative">
           {description}
         </p>
         <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-[#f5f5f5] to-transparent z-20 pointer-events-none" />
