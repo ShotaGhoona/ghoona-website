@@ -22,7 +22,7 @@ export default function NewsSection() {
   ];
 
   return (
-    <section id="news" className="relative w-full bg-no-repeat bg-cover px-5 md:px-20 py-10 md:py-20 bg-gradient-to-t from-transparent via-[#3f77a455] to-transparent">
+    <section className="relative w-full bg-no-repeat bg-cover px-5 md:px-20 py-10 md:py-20 bg-gradient-to-t from-transparent via-[#3f77a455] to-transparent">
       <SectionTitle title="News" />
       <div className="flex flex-col md:flex-row gap-8 items-center justify-center md:justify-between">
         {newsItems.map((item, idx) => (

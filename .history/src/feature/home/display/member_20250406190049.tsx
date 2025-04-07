@@ -19,7 +19,7 @@ export default function MemberSection() {
   ];
 
   return (
-    <section id="member" className="w-full py-10">
+    <section className="w-full py-10">
       <SectionTitle title="Member" className="w-full px-5 md:px-20"/>
       <div className="mt-8 overflow-x-auto px-5 md:px-20">
         <div className="flex gap-10 overflow-x-scroll no-scrollbar py-5">

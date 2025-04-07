@@ -51,7 +51,7 @@ export default function MemberCard({
         {role && <span className="text-xs text-[#1C1C1D] font-semibold mb-1">{role}</span>}
         <div className="flex gap-2 items-baseline">
           <h2 className="text-xl text-[#1C1C1D] font-bold">{name}</h2>
-          <h3 className="text-xs text-[#1C1C1D]">{nameEn}</h3>
+          <h3 className="text-xs">{nameEn}</h3>
         </div>
         <p className="text-xs text-[#1C1C1D] mb-2 overflow-hidden line-clamp-5">{description}</p>
 

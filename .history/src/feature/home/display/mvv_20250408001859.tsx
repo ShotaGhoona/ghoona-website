@@ -61,7 +61,7 @@ export default function MVVSection() {
   };
 
   return (
-    <section id="mission" className="relative w-full px-5 md:px-20 py-10 md:py-20">
+    <section className="relative w-full px-5 md:px-20 py-10 md:py-20">
       <SectionTitle title="Mission Vision Value" />
       <div className="relative overflow-hidden rounded-[10px]">
         <Image src="/SVG/mvv.svg" width={0} height={0} alt="MVV背景画像" className="w-full h-auto object-cover md:px-20" />

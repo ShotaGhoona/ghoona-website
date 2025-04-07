@@ -61,9 +61,9 @@ export default function MVVSection() {
   };
 
   return (
-    <section id="mission" className="relative w-full px-5 md:px-20 py-10 md:py-20">
+    <section className="relative w-full px-5 md:px-20 py-10 md:py-20">
       <SectionTitle title="Mission Vision Value" />
-      <div className="relative overflow-hidden rounded-[10px]">
+      <div className="relative overflow-hidden rounded-[30px]">
         <Image src="/SVG/mvv.svg" width={0} height={0} alt="MVV背景画像" className="w-full h-auto object-cover md:px-20" />
 
         <AnimatePresence mode="wait">
@@ -81,12 +81,12 @@ export default function MVVSection() {
                 <div className="w-[50%] flex flex-col items-center justify-center">
                   <div className="bg-white/80 shadow-lg rounded-lg w-[70%] h-[80%] flex flex-col items-center justify-center p-4 md:p-8">
                     <Image src={content.img} width={200} height={200} alt={`${content.title}画像`} className="object-contain"/>
-                    <h2 className="text-[30px] md:text-[40px] text-[#1C1C1D] font-bold mt-4">{content.title}</h2>
+                    <h2 className="text-[30px] md:text-[40px] font-bold mt-4">{content.title}</h2>
                   </div>
                 </div>
                 <div className="w-[50%]">
-                  <h1 className="text-[28px] md:text-[40px] text-[#1C1C1D] font-bold mb-6">{content.subtitle}</h1>
-                  <p className="text-[12px] md:text-[15px] text-[#1C1C1D] leading-relaxed font-bold" dangerouslySetInnerHTML={{ __html: content.description }}></p>
+                  <h1 className="text-[28px] md:text-[40px] font-bold mb-6">{content.subtitle}</h1>
+                  <p className="text-[12px] md:text-[15px] leading-relaxed font-bold" dangerouslySetInnerHTML={{ __html: content.description }}></p>
                 </div>
               </motion.div>
 
@@ -107,7 +107,7 @@ export default function MVVSection() {
                     alt={`${content.title}画像`}
                     className="object-contain"
                   />
-                  <h2 className="text-[18px] text-[#1C1C1D] font-bold mt-2">{content.title}</h2>
+                  <h2 className="text-[18px] font-bold mt-2">{content.title}</h2>
                 </div>
               </motion.div>
             </>

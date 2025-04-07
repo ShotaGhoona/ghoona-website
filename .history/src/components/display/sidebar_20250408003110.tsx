@@ -25,18 +25,11 @@ export default function Sidebar() {
                 Home
               </Link>
               <ul className="ml-13 relative">
-                <li className="text-[15px] relative pt-2">
-                  <Link href="/#service">Service</Link>
-                </li>
-                <li className="text-[15px] relative pt-2">
-                  <Link href="/#mission">Mission</Link>
-                </li>
-                <li className="text-[15px] relative pt-2">
-                  <Link href="/#member">Member</Link>
-                </li>
-                <li className="text-[15px] relative pt-2">
-                  <Link href="/#news">News</Link>
-                </li>
+                {['Service', 'Mission', 'Member', 'News', 'Company'].map((item) => (
+                  <li key={item} className="text-[15px] relative pt-2">
+                    <Link href={`/#${item.toLowerCase()}`}>{item}</Link>
+                  </li>
+                ))}
               </ul>
             </li>
 

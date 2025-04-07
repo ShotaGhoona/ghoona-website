@@ -61,7 +61,7 @@ export default function MVVSection() {
   };
 
   return (
-    <section id="mission" className="relative w-full px-5 md:px-20 py-10 md:py-20">
+    <section className="relative w-full px-5 md:px-20 py-10 md:py-20">
       <SectionTitle title="Mission Vision Value" />
       <div className="relative overflow-hidden rounded-[10px]">
         <Image src="/SVG/mvv.svg" width={0} height={0} alt="MVV背景画像" className="w-full h-auto object-cover md:px-20" />
@@ -107,7 +107,7 @@ export default function MVVSection() {
                     alt={`${content.title}画像`}
                     className="object-contain"
                   />
-                  <h2 className="text-[18px] text-[#1C1C1D] font-bold mt-2">{content.title}</h2>
+                  <h2 className="text-[18px] font-bold mt-2">{content.title}</h2>
                 </div>
               </motion.div>
             </>
