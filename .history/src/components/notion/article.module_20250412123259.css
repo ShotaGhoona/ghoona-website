@@ -1,0 +1,138 @@
+.container {
+  padding: 0 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container h1 {
+  font-size: 32px;
+}
+.container h2 {
+  font-size: 24px;
+  line-height: 4;
+  font-weight: bold;
+}
+.container h3 {
+  font-size: 20px;
+  line-height: 3;
+  font-weight: bold;
+}
+.container p {
+  font-size: 16px;
+  line-height: 2;
+}
+.container p:empty {
+  height: 2em; /* 行間の高さに応じて調整 */
+  margin: 0;
+}
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+.container figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+.container li{
+  line-height: 2;
+}
+
+.container figcaption {
+  opacity: 0.6;
+}
+.container blockquote {
+  margin: 10px 0;
+  padding: 5px 20px;
+  border-left: 4px solid #3f77a4;
+}
+.container hr {
+  margin: 20px 0;
+  color: #aeaeae;
+}
+.name {
+  font-size: 36px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
+
+.italic {
+  font-style: italic;
+}
+
+.container pre {
+  background-color: rgb(235, 235, 235);
+  padding: 20px;
+  margin: 20px 0;
+  line-height: 2.3;
+  border-radius: 12px;
+  overflow: auto;
+}
+
+.code_block {
+  padding: 20px;
+  font-family: monospace;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.file {
+  padding: 2px 4px;
+  text-decoration: none;
+}
+
+.file a {
+  color: inherit;
+}
+
+.file:hover {
+  background: rgba(55, 53, 47, 0.08);
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.bookmark {
+  display: block;
+  margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+  .container p {
+    font-size: 12px;
+  }
+  .container h1 {
+    font-size: 24px;
+  }
+  .container h2 {
+    font-size: 20px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .code {
+    background-color: rgb(15, 8, 28);
+  }
+  .file:hover {
+    background: rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  .pre {
+    background-color: rgb(15, 8, 28);
+  }
+}

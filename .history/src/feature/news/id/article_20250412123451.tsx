@@ -1,0 +1,46 @@
+import { Fragment } from 'react';
+import { renderBlock } from '@/components/notion/blockRenderer';
+import Link from 'next/link';
+import styles from '@/components/notion/article.module.css';
+
+type ArticleProps = {
+  page: any;
+  blocks: any[];
+};
+
+export default function Article({ page, blocks }: ArticleProps) {
+  if (!page || !blocks) return <div>読み込み中です...</div>;
+
+  const titleProp = page.properties['ブログ名']?.title;
+  const title = titleProp?.[0]?.plain_text || 'タイトルなし';
+  const tag = page.properties['タグ'].select?.name || 'タグなし';
+  const date = page.properties['投稿日'].date.start;
+  const thumbnail = page.properties['サムネイル'].files[0]?.file.url || '';
+
+  return (
+    <article className={styles.container}>
+      <div className="text-2xl md:text-3xl font-bold mt-10">{title}</div>
+      
+      <div className="flex justify-between items-center my-10">
+        <span className="px-5 py-1 bg-[#3f77a4] text-white text-[12px] rounded-full">{tag}</span>
+        <span className="text-[12px] text-gray-500">{date}</span>
+      </div>
+      <div className="p-5 md:p-10 bg-white rounded-[10px] md:rounded-[30px]">
+        <div className="w-full mb-5 md:mb-10">
+          <img src={thumbnail} alt={title} className="rounded-[10px] md:rounded-[30px] w-full object-cover"/>
+        </div>
+        <section className="prose">
+          {blocks.map((block) => (
+            <Fragment key={block.id}>{renderBlock(block)}</Fragment>
+          ))}
+        </section>
+      </div>
+
+      <div className="my-16 text-center">
+        <Link href="/news" className="px-8 py-2 bg-[#3f77a4] text-white rounded-full">
+          記事一覧へ
+        </Link>
+      </div>
+    </article>
+  );
+}
