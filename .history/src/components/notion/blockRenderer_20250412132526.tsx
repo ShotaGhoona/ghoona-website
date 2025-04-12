@@ -39,8 +39,8 @@ export const renderBlock = (block: BlockObjectResponse) => {
     case 'numbered_list_item':
       return (
         <li>
-          {(value as any).rich_text && <Text text={(value as any).rich_text} />}
-          {(value as any).children && renderNestedList(block)}
+          {value.rich_text && <Text text={value.rich_text} />}
+          {value.children && renderNestedList(block)}
         </li>
       );
 
@@ -48,8 +48,8 @@ export const renderBlock = (block: BlockObjectResponse) => {
       return (
         <div>
           <label htmlFor={id}>
-            <input type="checkbox" id={id} defaultChecked={(value as any).checked} />
-            {(value as any).rich_text && <Text text={(value as any).rich_text} />}
+            <input type="checkbox" id={id} defaultChecked={value.checked} />
+            {value.rich_text && <Text text={value.rich_text} />}
           </label>
         </div>
       );
@@ -57,16 +57,16 @@ export const renderBlock = (block: BlockObjectResponse) => {
     case 'toggle':
       return (
         <details>
-          <summary>{(value as any).rich_text && <Text text={(value as any).rich_text} />}</summary>
-          {(value as any).children?.map((child: any) => (
+          <summary>{value.rich_text && <Text text={value.rich_text} />}</summary>
+          {value.children?.map((child: any) => (
             <Fragment key={child.id}>{renderBlock(child)}</Fragment>
           ))}
         </details>
       );
 
     case 'image':
-      const src = (value as any).type === 'external' ? (value as any).external.url : (value as any).file.url;
-      const caption = (value as any).caption?.[0]?.plain_text || '';
+      const src = value.type === 'external' ? value.external.url : value.file.url;
+      const caption = value.caption?.[0]?.plain_text || '';
       return (
         <figure>
           <img src={src} alt={caption} />
@@ -78,19 +78,19 @@ export const renderBlock = (block: BlockObjectResponse) => {
       return <hr key={id} />;
 
     case 'quote':
-      return (value as any).rich_text && <blockquote key={id}><Text text={(value as any).rich_text} /></blockquote>;
+      return value.rich_text && <blockquote key={id}><Text text={value.rich_text} /></blockquote>;
 
     case 'code':
-      return (value as any).rich_text && (
+      return value.rich_text && (
         <pre>
-          <code key={id}>{(value as any).rich_text[0].plain_text}</code>
+          <code key={id}>{value.rich_text[0].plain_text}</code>
         </pre>
       );
 
     case 'file':
-      const src_file = (value as any).type === 'external' ? (value as any).external.url : (value as any).file.url;
+      const src_file = value.type === 'external' ? value.external.url : value.file.url;
       const filename = src_file.split('/').pop()?.split('?')[0];
-      const caption_file = (value as any).caption?.[0]?.plain_text || '';
+      const caption_file = value.caption?.[0]?.plain_text || '';
       return (
         <figure>
           <div>
@@ -102,8 +102,8 @@ export const renderBlock = (block: BlockObjectResponse) => {
 
     case 'bookmark':
       return (
-        <a href={(value as any).url} target="_blank" rel="noopener noreferrer">
-          {(value as any).url}
+        <a href={value.url} target="_blank" rel="noopener noreferrer">
+          {value.url}
         </a>
       );
 
