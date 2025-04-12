@@ -22,7 +22,7 @@ type BlockValue = {
 // ブロックのレンダリングロジック
 export const renderNestedList = (block: BlockWithChildren) => {
   const { type } = block;
-  const value = block[type as keyof BlockObjectResponse] as BlockValue;
+  const value = block[type] as BlockValue;
   if (!value || !value.children) return null;
 
   const isNumberedList = value.children[0]?.type === 'numbered_list_item';
@@ -36,7 +36,7 @@ export const renderNestedList = (block: BlockWithChildren) => {
 
 export const renderBlock = (block: BlockWithChildren) => {
   const { type, id } = block;
-  const value = block[type as keyof BlockObjectResponse] as BlockValue;
+  const value = block[type] as BlockValue;
 
   switch (type) {
     case 'paragraph':

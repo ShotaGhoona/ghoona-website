@@ -1,6 +1,7 @@
 import { Fragment } from 'react';
 import { Text } from './notionText';
 import Link from 'next/link';
+import { JSX } from 'react';
 import { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints';
 import Image from 'next/image';
 
@@ -8,35 +9,24 @@ type BlockWithChildren = BlockObjectResponse & {
   children?: BlockObjectResponse[];
 };
 
-type BlockValue = {
-  rich_text?: any[];
-  children?: BlockObjectResponse[];
-  checked?: boolean;
-  type?: string;
-  external?: { url: string };
-  file?: { url: string };
-  caption?: { plain_text: string }[];
-  url?: string;
-};
-
 // ブロックのレンダリングロジック
 export const renderNestedList = (block: BlockWithChildren) => {
   const { type } = block;
-  const value = block[type as keyof BlockObjectResponse] as BlockValue;
+  const value = block[type];
   if (!value || !value.children) return null;
 
   const isNumberedList = value.children[0]?.type === 'numbered_list_item';
 
   return isNumberedList ? (
-    <ol>{value.children.map((child: BlockObjectResponse) => renderBlock(child))}</ol>
+    <ol>{value.children.map((child) => renderBlock(child))}</ol>
   ) : (
-    <ul>{value.children.map((child: BlockObjectResponse) => renderBlock(child))}</ul>
+    <ul>{value.children.map((child) => renderBlock(child))}</ul>
   );
 };
 
 export const renderBlock = (block: BlockWithChildren) => {
   const { type, id } = block;
-  const value = block[type as keyof BlockObjectResponse] as BlockValue;
+  const value = block[type];
 
   switch (type) {
     case 'paragraph':
@@ -74,18 +64,18 @@ export const renderBlock = (block: BlockWithChildren) => {
       return (
         <details>
           <summary>{value.rich_text && <Text text={value.rich_text} />}</summary>
-          {value.children?.map((child: BlockObjectResponse) => (
+          {value.children?.map((child) => (
             <Fragment key={child.id}>{renderBlock(child)}</Fragment>
           ))}
         </details>
       );
 
     case 'image':
-      const src = value.type === 'external' ? value.external?.url : value.file?.url;
+      const src = value.type === 'external' ? value.external.url : value.file.url;
       const caption = value.caption?.[0]?.plain_text || '';
       return (
         <figure>
-          <Image src={src || ''} alt={caption} width={500} height={300} />
+          <Image src={src} alt={caption} width={500} height={300} />
           {caption && <figcaption>{caption}</figcaption>}
         </figure>
       );
@@ -104,13 +94,13 @@ export const renderBlock = (block: BlockWithChildren) => {
       );
 
     case 'file':
-      const src_file = value.type === 'external' ? value.external?.url : value.file?.url;
-      const filename = src_file?.split('/').pop()?.split('?')[0];
+      const src_file = value.type === 'external' ? value.external.url : value.file.url;
+      const filename = src_file.split('/').pop()?.split('?')[0];
       const caption_file = value.caption?.[0]?.plain_text || '';
       return (
         <figure>
           <div>
-            📎 <Link href={src_file || ''}>{filename}</Link>
+            📎 <Link href={src_file}>{filename}</Link>
           </div>
           {caption_file && <figcaption>{caption_file}</figcaption>}
         </figure>
